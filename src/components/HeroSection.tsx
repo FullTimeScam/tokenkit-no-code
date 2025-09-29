@@ -1,76 +1,110 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import heroImage from "@/assets/hero-dashboard.jpg";
+
+// Particle component for background effect
+const Particles = () => {
+  return (
+    <div className="particles">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${8 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMC41TDMyIDMyLjVNMzIgMC41TDAgMzIuNSIgc3Ryb2tlPSJyZ2IoMjU1IDI1NSAyNTUgLyAwLjA1KSIvPgo8L3N2Zz4=')] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <Particles />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
           <div className="text-center lg:text-left space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-primary-foreground leading-tight">
-                Turn Ideas into{" "}
-                <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
-                  Assets
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-mono font-bold text-foreground leading-tight flicker">
+                TURN IDEAS INTO{" "}
+                <span className="text-primary text-glow-orange">
+                  DIGITAL ASSETS
                 </span>
               </h1>
-              <h2 className="text-xl lg:text-2xl text-primary-foreground/80 font-light leading-relaxed">
-                No Code Required.
+              <h2 className="text-xl lg:text-2xl text-secondary font-mono font-bold tracking-wider text-glow-yellow">
+                &gt; NO_CODE_REQUIRED.EXE
               </h2>
-              <p className="text-lg text-primary-foreground/70 max-w-2xl">
-                Design, launch, and manage tokens for your Web3 project in minutes with a powerful, intuitive toolkit.
+              <p className="text-lg text-muted-foreground max-w-2xl font-mono leading-relaxed">
+                // Initialize token deployment protocol
+                <br />
+                // Executing advanced smart contract framework
+                <br />
+                // Deploy and manage tokens in &lt;5 minutes
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="xl" className="group">
-                Start for Free
+              <Button variant="terminal" size="xl" className="group">
+                [INITIATE_DEPLOYMENT]
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" className="bg-white/10 border-white/20 text-primary-foreground hover:bg-white/20 backdrop-blur-sm">
+              <Button variant="outline" size="xl" className="group">
                 <Play className="w-5 h-5" />
-                Watch Demo
+                [VIEW_DEMO.MP4]
               </Button>
             </div>
 
-            <div className="flex items-center gap-8 justify-center lg:justify-start text-primary-foreground/60">
+            <div className="flex items-center gap-8 justify-center lg:justify-start text-muted-foreground font-mono text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                <span className="text-sm">No credit card required</span>
+                <div className="w-2 h-2 bg-accent animate-pulse"></div>
+                <span>CREDIT_CARD: FALSE</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                <span className="text-sm">Deploy in minutes</span>
+                <div className="w-2 h-2 bg-accent animate-pulse"></div>
+                <span>DEPLOY_TIME: &lt;300s</span>
               </div>
             </div>
           </div>
 
-          {/* Right side - Hero image */}
+          {/* Right side - Terminal display */}
           <div className="relative">
-            <div className="relative z-10">
-              <img
-                src={heroImage}
-                alt="Coin Kit Dashboard - Token Creation and Management Interface"
-                className="w-full rounded-2xl shadow-2xl border border-white/10"
-              />
+            <div className="relative z-10 bg-card border border-foreground p-6">
+              <div className="flex items-center gap-2 mb-4 border-b border-foreground pb-2">
+                <div className="w-3 h-3 bg-destructive"></div>
+                <div className="w-3 h-3 bg-secondary"></div>
+                <div className="w-3 h-3 bg-success"></div>
+                <span className="font-mono text-xs text-muted-foreground ml-2">
+                  COIN_KIT_TERMINAL v2.1.0
+                </span>
+              </div>
+              
+              <div className="font-mono text-sm space-y-2 text-success">
+                <div>&gt; system.status: <span className="text-accent">ONLINE</span></div>
+                <div>&gt; contracts.audited: <span className="text-accent">TRUE</span></div>
+                <div>&gt; security.level: <span className="text-secondary">MAXIMUM</span></div>
+                <div>&gt; tokens.deployed: <span className="text-accent">847,293</span></div>
+                <div>&gt; funds.secured: <span className="text-secondary">$50M+</span></div>
+                <div className="text-foreground">&gt; <span className="animate-pulse">_</span></div>
+              </div>
             </div>
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-glow/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+            
+            {/* Glowing corners */}
+            <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-primary shadow-glow"></div>
+            <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-primary shadow-glow"></div>
+            <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-primary shadow-glow"></div>
+            <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-primary shadow-glow"></div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
-        </div>
+      {/* Terminal prompt at bottom */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 font-mono text-muted-foreground text-sm">
+        <span className="animate-pulse">&gt; SCROLL_DOWN_TO_CONTINUE</span>
       </div>
     </section>
   );
