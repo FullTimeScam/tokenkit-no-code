@@ -75,11 +75,6 @@ export default {
         'lg': 'var(--shadow-lg)',
         'xl': 'var(--shadow-xl)',
         'glow': 'var(--shadow-glow)',
-        'green-glow': 'var(--shadow-green-glow)',
-        'yellow-glow': 'var(--shadow-yellow-glow)',
-      },
-      fontFamily: {
-        'mono': ['Fira Code', 'ui-monospace', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'monospace'],
       },
       transitionProperty: {
         'smooth': 'var(--transition-smooth)',
