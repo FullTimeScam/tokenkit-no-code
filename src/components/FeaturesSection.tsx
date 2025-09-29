@@ -3,58 +3,66 @@ import { Code, Settings, Send, Shield, Zap, Users } from "lucide-react";
 const features = [
   {
     icon: Code,
-    title: "No-Code Token Creation",
-    description: "Define every aspect of your token—name, symbol, supply—through an intuitive interface, no coding necessary.",
+    title: "NO_CODE_INTERFACE",
+    description: "// Initialize token parameters via GUI\n// No programming knowledge required\n// Deploy contracts instantly",
+    command: "INIT_TOKEN_CREATION()",
     color: "text-primary",
-    bgColor: "bg-primary/10"
+    glowColor: "border-glow-orange"
   },
   {
     icon: Settings,
-    title: "Integrated Management Dashboard",
-    description: "Control everything from one place. Mint, burn, freeze accounts, and manage permissions with ease.",
-    color: "text-accent",
-    bgColor: "bg-accent/10"
+    title: "MANAGEMENT_CONSOLE",
+    description: "// Centralized control dashboard\n// Execute mint/burn operations\n// Manage permissions & access",
+    command: "ACCESS_CONTROL_PANEL()",
+    color: "text-secondary",
+    glowColor: "border-glow-yellow"
   },
   {
     icon: Send,
-    title: "Large-Scale Airdrops",
-    description: "Securely distribute tokens to thousands of holders with just a few clicks. Bulk operations made simple.",
+    title: "MASS_DISTRIBUTION",
+    description: "// Bulk airdrop protocols\n// Process thousands of transactions\n// Automated batch operations",
+    command: "EXECUTE_AIRDROP()",
     color: "text-success",
-    bgColor: "bg-success/10"
+    glowColor: "border-glow-green"
   },
   {
     icon: Shield,
-    title: "Security & Permissions",
-    description: "Protect your assets with audited contracts and granular permission controls. Enterprise-grade security.",
-    color: "text-primary-glow",
-    bgColor: "bg-primary/5"
+    title: "SECURITY_PROTOCOLS",
+    description: "// Audited smart contracts\n// Multi-layer permission system\n// Enterprise-grade protection",
+    command: "VERIFY_SECURITY()",
+    color: "text-primary",
+    glowColor: "border-glow-orange"
   },
   {
     icon: Zap,
-    title: "Lightning Fast Deployment",
-    description: "From concept to live token in under 5 minutes. No complex setup or technical knowledge required.",
-    color: "text-accent",
-    bgColor: "bg-accent/5"
+    title: "RAPID_DEPLOYMENT",
+    description: "// Complete deployment < 300 seconds\n// Zero technical configuration\n// Instant blockchain integration",
+    command: "FAST_DEPLOY_MODE()",
+    color: "text-secondary",
+    glowColor: "border-glow-yellow"
   },
   {
     icon: Users,
-    title: "Multi-Chain Support",
-    description: "Deploy on Ethereum, Polygon, BSC, and more. One interface for all major blockchain networks.",
+    title: "MULTI_CHAIN_SUPPORT",
+    description: "// Cross-chain compatibility\n// Universal deployment interface\n// Single point of management",
+    command: "SELECT_BLOCKCHAIN()",
     color: "text-success",
-    bgColor: "bg-success/5"
+    glowColor: "border-glow-green"
   }
 ];
 
 export const FeaturesSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background border-t border-foreground">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Everything You Need to Launch
+          <h2 className="text-4xl lg:text-5xl font-mono font-bold text-foreground mb-6 text-glow-orange">
+            SYSTEM_CAPABILITIES.EXE
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Powerful features designed to make token creation and management as simple as possible
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-mono">
+            // Loading advanced token deployment modules...
+            <br />
+            // All systems operational and ready for deployment
           </p>
         </div>
 
@@ -62,27 +70,39 @@ export const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="group p-8 rounded-2xl border border-border bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className={`group p-6 border border-foreground bg-card hover:${feature.glowColor} hover:shadow-glow transition-all duration-150`}
             >
-              <div className={`w-16 h-16 rounded-xl ${feature.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <feature.icon className={`w-8 h-8 ${feature.color}`} />
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <feature.icon className={`w-6 h-6 ${feature.color}`} />
+                  <div className="w-2 h-2 bg-success animate-pulse"></div>
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">
+                  [{String(index + 1).padStart(2, '0')}]
+                </span>
               </div>
               
-              <h3 className="text-xl font-bold text-foreground mb-4">
+              <h3 className="text-lg font-mono font-bold text-foreground mb-4 tracking-wider">
                 {feature.title}
               </h3>
               
-              <p className="text-muted-foreground leading-relaxed">
+              <pre className="text-muted-foreground text-sm font-mono leading-relaxed mb-4 whitespace-pre-wrap">
                 {feature.description}
-              </p>
+              </pre>
+
+              <div className="border-t border-foreground pt-4">
+                <code className="text-xs font-mono text-success">
+                  &gt; {feature.command}
+                </code>
+              </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-secondary rounded-full text-sm font-medium text-secondary-foreground">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-secondary text-sm font-mono font-bold text-secondary">
             <Zap className="w-4 h-4" />
-            And much more coming soon...
+            [ADDITIONAL_MODULES_LOADING...]
           </div>
         </div>
       </div>
